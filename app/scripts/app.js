@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-var app = angular
-  .module('surveyDevApp', [
+var app = angular.module('surveyDevApp', [
     'ngAnimate',
     'ngCookies',
     'ngMessages',
@@ -54,18 +53,14 @@ var app = angular
     storageBucket: "izisurvey-df4d1.appspot.com",
     messagingSenderId: "317755149201"
     };
-    /*
     var surveyapp = firebase.initializeApp(config);
+      
+    //console.log(surveyapp);
+    /*
     surveyapp.database().ref('/users/').once('value').then(function(snapshot) {
       $rootScope.users = snapshot.val();
       $rootScope.$apply();
       console.log(snapshot.val());
     });
   */
-    /*
-    firebase.database().ref('/users/' + ).once('value').then(function(snapshot) {
-      $rootScope.casa = snapshot.val();
-      $rootScope.$apply();
-      console.log(snapshot.val());
-    });*/
   });

@@ -10,25 +10,26 @@
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
  
-    <link href="justified-nav.css" rel="stylesheet">
+    <!--link href="justified-nav.css" rel="stylesheet"-->
  
 </head>
  
 <body>
  
-    <div class="container">
+    <div class="container" ng-controller="LoginCtrl">
         <div class="jumbotron" style="padding-bottom:0px;">
             <h2>Ez-SurveyApp - Proyectos TICS III</h2>
         </div>
-        <form class="form-signin" name="firebase-login" ng-controller="LoginCtrl" ng-submit="submitForm()" role="form" action="#">
-            Email Address: <br/><input type="text" ng-model="form.email"> <br/><br/>
-            Password: <br/><input type="password" ng-model="form.password"> <br/><br/>
-            
-        <input type="submit" ngClick="Log In" >
+        <form class="form-signin" name="firebase-login" ng-controller="LoginCtrl" ng-submit="submitForm(mail.email,pass.password)">
+            <br>E-mail: <br/><input type="text" name="email" ng-model="mail.email"> 
+            <br>Password: <br/><input type="password" name="password" ng-model="pass.password">
+        <br>
+            <input type="submit" ngClick="Log In">
+        </br>
         <label class="checkbox">
-        Not registered? <a href="#!/register"> Sign Up</>
+        Not registered? <a href="#!/register"> Sign Up</a>
         </label>
-      </form>
+        </form>
     
     </div>
  

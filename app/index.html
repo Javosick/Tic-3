@@ -91,7 +91,8 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+        
+      <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js">
         //Initialize Firebase
         var config = {
@@ -104,13 +105,13 @@
         };
         firebase.InitializeApp(config); 
         </script>
+        
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/login.js"></script>
-        
-        
         <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/controllers/register.js"></script>
         <!-- endbuild -->
 </body>
 </html>
