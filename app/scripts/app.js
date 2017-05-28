@@ -40,6 +40,16 @@ var app = angular.module('surveyDevApp', [
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
+      .when('/register',{
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl',
+        controllerAs: 'register'
+      })
+      .when('/survey',{
+        templateUrl: 'views/survey.html',
+        controller: 'SurveyCtrl',
+        controllerAs: 'survey'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="surveyDevApp">
+ 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+ 
+    <title>Ez-SurveyApp - Proyectos TICS III</title>
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+ 
+    <!--link href="justified-nav.css" rel="stylesheet"-->
+ 
+</head>
+ 
+<body>
+ 
+    <div class="container" ng-controller="LoginCtrl">
+        <div class="jumbotron" style="padding-bottom:0px;">
+            <h2>Ez-SurveyApp - Proyectos TICS III</h2>
+        </div>
+        <br>
+            <h3>Welcome, Dear {{getcurrentUser()}} </h3>
+        <button type="submit" ng-controller="LoginCtrl"   ng-click="logout()">Sign out</button>
+        </br>
+    </div>
+    </body>
+</html>
