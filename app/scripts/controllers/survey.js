@@ -7,11 +7,12 @@
  * # SurveyCtrl
  * Controller of the surveyDevApp
  */
-angular.module('surveyDevApp')
-  .controller('SurveyCtrl', function () {
+var app= angular.module('surveyDevApp');
+app.controller('SurveyCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    
   });

@@ -75,14 +75,19 @@ app.controller('LoginCtrl', function ($window,$location, $route, $scope, mail, p
 		  var errorMessage = error.message;
 		  if (errorCode === 'auth/wrong-password') {
 		    alert('Wrong password.');
+            return false;
 		  } else {
 		    alert(errorMessage);
+            return false;
+		  }
 		  }
 		  console.log(error);
 		}));
-     $scope.setloggedIn(true);
-     $location.path('#!/survey');
-     $route.reload();
+        if (error) {
+            $scope.setloggedIn(true);
+            $window.location.assign('#!/survey');
+        } 
+     
     }
     $scope.islogged = function () {
       firebase.auth().onAuthStateChanged(function(user) {
