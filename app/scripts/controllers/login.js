@@ -80,9 +80,8 @@ app.controller('LoginCtrl', function ($window,$location, $route, $scope, mail, p
 		    alert(errorMessage);
             return false;
 		  }
-		  }
+		  }));
 		  console.log(error);
-		}));
         if (error) {
             $scope.setloggedIn(true);
             $window.location.assign('#!/survey');
