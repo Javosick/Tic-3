@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+ var surveyapp
 var app = angular.module('surveyDevApp', [
     'ngAnimate',
     'ngCookies',
@@ -50,11 +51,22 @@ var app = angular.module('surveyDevApp', [
         controller: 'SurveyCtrl',
         controllerAs: 'survey'
       })
+      .when('/formulario', {
+        templateUrl: 'views/formulario.html',
+        controller: 'FormularioCtrl',
+        controllerAs: 'formulario'
+      })
       .otherwise({
         redirectTo: '/'
       });
   });
   app.run(function($rootScope){
+
+$rootScope.check = false;
+$rootScope.check_login = function(){
+return !$rootScope.check
+}
+
     var config = {
     apiKey: "AIzaSyAunMU1gJPm6Z4RZSKJP_dgsQwlS2GiSS8",
     authDomain: "izisurvey-df4d1.firebaseapp.com",
@@ -63,7 +75,7 @@ var app = angular.module('surveyDevApp', [
     storageBucket: "izisurvey-df4d1.appspot.com",
     messagingSenderId: "317755149201"
     };
-    var surveyapp = firebase.initializeApp(config);
+   surveyapp = firebase.initializeApp(config);
       
     //console.log(surveyapp);
     /*

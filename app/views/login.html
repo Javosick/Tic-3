@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
  
-    <title>Ez-SurveyApp - Proyecto TICS III</title>
+    <title>Izi Survey Web App </title>
  
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
@@ -18,15 +18,15 @@
  
     <div ng-init="islogged()" class="container" ng-controller="LoginCtrl">
         <div class="jumbotron" style="padding-bottom:0px;">
-            <h2>Ez-SurveyApp - Proyecto TICS III</h2>
+            <h1>Izi Survey Web App </h1>
         </div>
     <div ng-switch="loggedIn">
     <div ng-switch-when="true">
-       <h3>Welcome, Dear {{getcurrentUser()}} </h3>
+       <h3>Welcome, dear {{getcurrentUser()}} </h3>
         <button type="submit" ng-controller="LoginCtrl"   ng-click="logout()">Sign out</button>
     </div>
     <div ng-switch-when="false">
-         <h3>Welcome, Dear Foreigner</h3>
+         <h3>Welcome, you foreigner.</h3>
         <form name="firebase-login" ng-controller="LoginCtrl" ng-submit="submitForm(mail.email,pass.password)">
             <br>E-mail: <br/><input type="text" name="email" ng-model="mail.email"> 
             <br>Password: <br/><input type="password" name="password" ng-model="pass.password">
@@ -34,7 +34,7 @@
             <input type="submit" ngClick="Log In">
         </br>
         <label class="checkbox">
-        Not registered? <a href="#!/register"> Sign Up</a>
+        Wanna join us? <a href="#!/register">Sign Up</a>
         </label>
         </form>
         </div>

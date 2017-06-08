@@ -33,7 +33,7 @@ app.factory('pass', function(){
     };
 });
 
-app.controller('LoginCtrl', function ($window,$location, $route, $scope, mail, pass) {
+app.controller('LoginCtrl', function ($window,$location, $route, $scope,$rootScope, mail, pass) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -84,6 +84,9 @@ app.controller('LoginCtrl', function ($window,$location, $route, $scope, mail, p
 		  console.log(error);
         if (error) {
             $scope.setloggedIn(true);
+            console.log($rootScope.check)
+            $rootScope.check = true;
+            console.log($rootScope.check)
             $window.location.assign('#!/survey');
         } 
      
@@ -99,13 +102,15 @@ app.controller('LoginCtrl', function ($window,$location, $route, $scope, mail, p
             //$route.reload();
             $scope.contador ++;
             console.log($scope.contador);
+            $rootScope.check = true;
             return true;
             $window.location.reload();
         }
         else {
-            alert('Log in to get access to the surveys!');
+            alert('Oops! You must be loggedIn to get access to the surveys! :-)');
             $scope.setcurrentUser(null);
             $scope.setloggedIn(false);
+             $rootScope.check = false;
             return false;
         }
         });
@@ -130,7 +135,7 @@ app.controller('LoginCtrl', function ($window,$location, $route, $scope, mail, p
         }).catch(function(error) {
         // An error happened.
         });
-        alert('Thanks for use our services, See you soon!');
+        alert('Thanks for use our services, see you soon! ;-)');
         $scope.contador = 1;
         $location.path('#!/');
         $route.reload();

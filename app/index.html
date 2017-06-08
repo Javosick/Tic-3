@@ -33,7 +33,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/login">surveyDev</a>
+            <a class="navbar-brand" href="#/login">IziSurvey</a>
             
           </div>
 
@@ -43,7 +43,7 @@
               <li><a href="#!/">Home</a></li>
               <li><a ng-href="#!/about">About</a></li>
               <li><a ng-href="#!/contact">Contact</a></li>
-              <li><a ng-href="#!/login">Login</a></li>
+              <li ng-if="check_login()"><a ng-href="#!/login">Login</a></li>
             </ul>
           </div>
         </div>
@@ -93,7 +93,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         
       <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js">
+      <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js">
         //Initialize Firebase
         var config = {
           apiKey: "AlzaSyAunMU1gJPm6Z4RZSKJP_dgsQwlS2GiSS8",
@@ -113,6 +113,7 @@
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/controllers/register.js"></script>
         <script src="scripts/controllers/survey.js"></script>
+        <script src="scripts/controllers/formulario.js"></script>
         <!-- endbuild -->
 </body>
 </html>
