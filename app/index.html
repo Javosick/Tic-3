@@ -58,7 +58,7 @@
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class="glyphicon glyphicon-heart"></span></p>
       </div>
     </div>
 
@@ -91,9 +91,11 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+
         
-      <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js">
+  
+      <script >
         //Initialize Firebase
         var config = {
           apiKey: "AlzaSyAunMU1gJPm6Z4RZSKJP_dgsQwlS2GiSS8",
@@ -103,8 +105,14 @@
           storageBucket: "izisurvey-df4d1.appspot.com",
           messaginSenderId: "317755149201"
         };
-        firebase.InitializeApp(config); 
+      
         </script>
+
+          <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+  <!-- AngularFire -->
+      <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+
         
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>

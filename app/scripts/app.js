@@ -17,6 +17,7 @@ var app = angular.module('surveyDevApp', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'firebase'
   ]);
 
   app.config(function ($routeProvider) {
@@ -60,6 +61,8 @@ var app = angular.module('surveyDevApp', [
         redirectTo: '/'
       });
   });
+app.constant('FBURL','https://izisurvey-df4d1.firebaseio.com/');
+
   app.run(function($rootScope){
 
 $rootScope.check = false;
@@ -67,15 +70,15 @@ $rootScope.check_login = function(){
 return !$rootScope.check
 }
 
-    var config = {
-    apiKey: "AIzaSyAunMU1gJPm6Z4RZSKJP_dgsQwlS2GiSS8",
-    authDomain: "izisurvey-df4d1.firebaseapp.com",
-    databaseURL: "https://izisurvey-df4d1.firebaseio.com",
-    projectId: "izisurvey-df4d1",
-    storageBucket: "izisurvey-df4d1.appspot.com",
-    messagingSenderId: "317755149201"
-    };
-   surveyapp = firebase.initializeApp(config);
+   //  var config = {
+   //  apiKey: "AIzaSyAunMU1gJPm6Z4RZSKJP_dgsQwlS2GiSS8",
+   //  authDomain: "izisurvey-df4d1.firebaseapp.com",
+   //  databaseURL: "https://izisurvey-df4d1.firebaseio.com",
+   //  projectId: "izisurvey-df4d1",
+   //  storageBucket: "izisurvey-df4d1.appspot.com",
+   //  messagingSenderId: "317755149201"
+   //  };
+   // surveyapp = firebase.initializeApp(config);
       
     //console.log(surveyapp);
     /*

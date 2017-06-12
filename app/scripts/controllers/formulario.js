@@ -8,17 +8,20 @@
  * Controller of the surveyDevApp
  */
 angular.module('surveyDevApp')
-  .controller('FormularioCtrl', function ($scope) {
+  .controller('FormularioCtrl', function ($scope,FBURL,$firebaseArray) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
+var ref = new Firebase(FBURL +"surveys");
+    $scope.product = $firebaseArray(ref);
+
 
     $scope.preguntas =[
 
-{tipo:null,alternativas:[{}]}
+      {tipo:null,alternativas:[{}]}
 
     ]
 
@@ -27,12 +30,12 @@ angular.module('surveyDevApp')
     }
 
     $scope.agregar = function(){
-$scope.preguntas.push({tipo:null,alternativas:[{}]});
+      $scope.preguntas.push({tipo:null,alternativas:[{}]});
 
     }
 
-        $scope.quitar = function(){
-$scope.preguntas.pop();
+    $scope.quitar = function(){
+      $scope.preguntas.pop();
 
     }
 
@@ -50,9 +53,8 @@ function makeid()
 
 
 $scope.guardar = function(){
-console.log($scope.preguntas);
-
-firebase.database().ref( makeid()).$set($scope.preguntas);
+$scope.product.$add($scope.preguntas);
+console.log("Guardado",FBURL)
 
 
     }
