@@ -1,0 +1,75 @@
+<form class="form-horizontal"  ng-submit="submit()" >
+<fieldset>
+
+<!-- Form Name -->
+<legend>Agregar Usuarios</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email">Email</label>  
+  <div class="col-md-4">
+  <input id="Email" name="Email" type="text" placeholder=""  ng-model="new.email" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">Contraseña</label>
+  <div class="col-md-4">
+    <input id="passwordinput" name="passwordinput" ng-model="new.passwd"  type="password" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email">Username</label>  
+  <div class="col-md-4">
+  <input id="Email" name="Email" type="text" placeholder=""  ng-model="new.userName" class="form-control input-md">
+    
+  </div>
+</div>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Nombre">Nombre</label>  
+  <div class="col-md-4">
+  <input id="Nombre" name="Nombre" type="text" ng-model="new.name"  placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Apellido">Apellido</label>  
+  <div class="col-md-4">
+  <input id="Apellido" name="Apellido" type="text"  ng-model="new.lastName" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Rol">Rol</label>
+  <div class="col-md-4">
+    <select id="Rol" name="Rol" class="form-control" ng-model="new.rol">
+      <option value="Encargado">Encargado</option>
+      <option value="Administrador">Administrador</option>
+      <option value="Basico">Basico</option>
+    </select>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="button1id">Opciones</label>
+  <div class="col-md-8">
+    <button id="button1id" name="button1id" class="btn btn-success">Guardar</button>
+    <button id="Cancelar" name="Cancelar" class="btn btn-danger">Cancelar</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

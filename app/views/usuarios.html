@@ -1,0 +1,33 @@
+<h2>Usuarios Izi Survey</h2>
+
+  <div class=text-right>
+     <a class="btn-info btn" ng-href="#!/add_usuarios" >Agregar Usuarios</a>
+</div>
+
+  <div class=text-left>
+     <p>Usuarios de la organizacion UDP </p> 
+</div>
+  
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>E-mail</th>
+        <th>Rol</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat ="usuario in users"> 
+        <td>{{usuario.name}}</td>
+        <td>{{usuario.lastName}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.rol}}</td>
+        <td><a ng-href="#!/edit_usuarios/{{usuario.$id}}" >Editar</a></td>
+      </tr>
+      
+    </tbody>
+  </table>

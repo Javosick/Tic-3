@@ -1,0 +1,36 @@
+<h2>Usuarios Izi Survey</h2>
+
+  <div class=text-right>
+     <a class="btn-info btn" ng-href="#!/add_usuarios" >Agregar Encuesta</a>
+</div>
+
+  <div class=text-left>
+     <p>Encuestas </p> 
+</div>
+  
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      <th>Nombre</th>
+        <th>Organizacion</th>
+
+        <th>Creador</th>
+        <th>Cantidad preguntas</th>
+        <th>Usuarios</th>
+        <th>Opciones </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat ="encuesta in db_encuestas"> 
+        <td>{{encuesta.name}}</td>
+        <td>{{encuesta.organization}}</td>
+        <td>{{encuesta.userCreator}}</td>
+        <td>{{count(encuesta.questionSections)}}</td>
+        <td>{{count(encuesta.users)}}</td>
+        <td><a ng-href="#!/edit_encuestas/{{encuesta.$id}}" >Editar </a><a ng-href="#!/edit_usuarios/{{usuario.$id}}" >Resultados </a> </td>
+      </tr>
+      
+    </tbody>
+  </table>

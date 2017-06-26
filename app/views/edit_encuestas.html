@@ -1,0 +1,86 @@
+<form class="form-horizontal"  ng-submit="submit()" >
+<fieldset>
+
+<!-- Form Name -->
+<legend>Editar Encuesta</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email">Nombre</label>  
+  <div class="col-md-4">
+  <input id="Email" name="Email" type="text" placeholder=""  ng-model="edit.name" class="form-control input-md">
+    
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email">Organizacion</label>  
+  <div class="col-md-4">
+    <select name="repeatSelect" id="repeatSelect"  class="form-control input-md" ng-model="edit.category">
+      <option ng-repeat="option in db_categorias" value="{{option.$id}}">{{option.$value}}</option>
+    </select>
+
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email">Usuario creador</label>  
+  <div class="col-md-4">
+    <select name="repeatSelect" id="repeatSelect"  class="form-control input-md" ng-model="edit.category">
+      <option ng-repeat="option in db_categorias" value="{{option.$id}}">{{option.$value}}</option>
+    </select>
+
+
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email">Respondidos</label>  
+  <div class="col-md-4">
+		<p ng-repeat="encuesta in encuestas">{{encuesta}}</p>
+  </div>
+</div>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Nombre">Descripcion</label>  
+  <div class="col-md-4">
+  <textarea id="Nombre" name="Nombre" type="text" ng-model="edit.description"  placeholder="" class="form-control input-md"></textarea> 
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectmultiple">Responsable</label>
+  <div class="col-md-4">
+    <select size="6" name="ngvalueselect" class="form-control" ng-model="edit.responsables" multiple>
+      <option ng-repeat="user in db_usuarios" ng-value="user.$id">{{user.name+" "+user.lastName}}</option>
+    </select>
+  </div>
+ </div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectmultiple">Usuarios</label>
+  <div class="col-md-4">
+    <select size="6" name="ngvalueselect" class="form-control" ng-model="edit.users" multiple>
+      <option ng-repeat="user in db_usuarios" ng-value="user.$id">{{user.name+" "+user.lastName}}</option>
+    </select>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectmultiple">Encuestas</label>
+  <div class="col-md-4">
+    
+  </div>
+</div>
+
+
+</fieldset>
+</form>

@@ -40,9 +40,10 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li><a href="#!/">Home</a></li>
-              <li><a ng-href="#!/about">About</a></li>
-              <li><a ng-href="#!/contact">Contact</a></li>
+              <li><a href="#!/">Inicio</a></li>
+              <li><a ng-if = "!user.login"  ng-href="#!/usuarios">Usuarios</a></li>
+              <li><a  ng-if = "!user.login"  ng-href="#!/organizaciones">Organizaciones</a></li>
+              <li><a  ng-if = "!user.login"  ng-href="#!/encuestas">Encuestas</a></li>
               <li ng-if="check_login()"><a ng-href="#!/login">Login</a></li>
             </ul>
           </div>
@@ -93,25 +94,24 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
 
 
-        
-  
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+
       <script >
-        //Initialize Firebase
-        var config = {
-          apiKey: "AlzaSyAunMU1gJPm6Z4RZSKJP_dgsQwlS2GiSS8",
-          authDomain: "izisurvey-df4d1.firebaseapp.com",
-          databaseURL: "https://izisurvey-df4d1.firebaseio.com",
-          projectId: "izisurvey-df4d1",
-          storageBucket: "izisurvey-df4d1.appspot.com",
-          messaginSenderId: "317755149201"
-        };
+
+       
+       var x;
+        var ref;
+        var obj;
+        var user ;
+        var list,uid;
+
       
         </script>
 
-          <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-
-  <!-- AngularFire -->
-      <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
 
         
         <script src="scripts/app.js"></script>
@@ -122,6 +122,14 @@
         <script src="scripts/controllers/register.js"></script>
         <script src="scripts/controllers/survey.js"></script>
         <script src="scripts/controllers/formulario.js"></script>
+        <script src="scripts/controllers/usuarios.js"></script>
+        <script src="scripts/controllers/encuestas.js"></script>
+        <script src="scripts/controllers/add_usuarios.js"></script>
+        <script src="scripts/controllers/edit_usuarios.js"></script>
+        <script src="scripts/controllers/organizaciones.js"></script>
+        <script src="scripts/controllers/add_organizaciones.js"></script>
+        <script src="scripts/controllers/edit_organizaciones.js"></script>
+        <script src="scripts/controllers/edit_encuestas.js"></script>
         <!-- endbuild -->
 </body>
 </html>
