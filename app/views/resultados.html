@@ -1,0 +1,56 @@
+
+
+<h2> Encuesta: {{encuesta.name}} </h2>
+
+
+
+<any ng-repeat="(fIndex, seccion) in encuesta.questionSections">
+<legend >Sección  {{$index+1}}</legend>
+
+<any ng-repeat="(subIndex, question)  in seccion.questions">
+<legend>Pregunta : {{question.description}}</legend>
+<table class="table" ng-if = "question.type != 2">
+    <thead>
+      <tr>
+        <th>Alternativas</th>
+        <th>Respuestas</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="option in question.options">
+        <td >{{option.option}}</td>
+        <td>{{contar(fIndex,subIndex,option.option)}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+  <table class="table" ng-if = "question.type == 2">
+    <thead>
+      <tr>
+        <th>Respuestas de los usuarios
+
+        </th>
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="respuesta in get_resultados(fIndex,subIndex)" >
+        <td >{{respuesta}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+
+  </any>
+    </any>
+
+
+
+    <button class="btn btn-primary" ng-csv="getArray" csv-header="['Field A', 'Field B', 'Field C']" filename="resultados.csv" > Descargar </button>

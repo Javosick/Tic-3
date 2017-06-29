@@ -17,7 +17,7 @@ var app = angular.module('surveyDevApp', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'firebase'
+    'firebase', 'ngCsv'
   ]);
 
   app.config(function ($routeProvider) {
@@ -96,6 +96,11 @@ var app = angular.module('surveyDevApp', [
         templateUrl: 'views/edit_encuestas.html',
         controller: 'EditEncuestasCtrl',
         controllerAs: 'editEncuestas'
+      })
+      .when('/resultados/:id', {
+        templateUrl: 'views/resultados.html',
+        controller: 'ResultadosCtrl',
+        controllerAs: 'resultados'
       })
       .otherwise({
         redirectTo: '/'

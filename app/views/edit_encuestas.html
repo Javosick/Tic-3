@@ -1,86 +1,146 @@
-<form class="form-horizontal"  ng-submit="submit()" >
+
+<form class="form-horizontal">
 <fieldset>
 
 <!-- Form Name -->
-<legend>Editar Encuesta</legend>
+<legend>Formulario</legend>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Email">Nombre</label>  
+  <label class="col-md-4 control-label" for="textinput">Nombre</label>  
   <div class="col-md-4">
-  <input id="Email" name="Email" type="text" placeholder=""  ng-model="edit.name" class="form-control input-md">
-    
+  <input id="textinput" name="textinput" type="text"  class="form-control input-md" ng-model="edit.name">
   </div>
-</div>
 
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Email">Organizacion</label>  
-  <div class="col-md-4">
-    <select name="repeatSelect" id="repeatSelect"  class="form-control input-md" ng-model="edit.category">
-      <option ng-repeat="option in db_categorias" value="{{option.$id}}">{{option.$value}}</option>
-    </select>
-
-
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Email">Usuario creador</label>  
-  <div class="col-md-4">
-    <select name="repeatSelect" id="repeatSelect"  class="form-control input-md" ng-model="edit.category">
-      <option ng-repeat="option in db_categorias" value="{{option.$id}}">{{option.$value}}</option>
-    </select>
-
-
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Email">Respondidos</label>  
-  <div class="col-md-4">
-		<p ng-repeat="encuesta in encuestas">{{encuesta}}</p>
-  </div>
 </div>
 
 
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Nombre">Descripcion</label>  
-  <div class="col-md-4">
-  <textarea id="Nombre" name="Nombre" type="text" ng-model="edit.description"  placeholder="" class="form-control input-md"></textarea> 
-    
-  </div>
-</div>
-
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="selectmultiple">Responsable</label>
-  <div class="col-md-4">
-    <select size="6" name="ngvalueselect" class="form-control" ng-model="edit.responsables" multiple>
-      <option ng-repeat="user in db_usuarios" ng-value="user.$id">{{user.name+" "+user.lastName}}</option>
-    </select>
-  </div>
- </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="selectmultiple">Usuarios</label>
+  <label class="col-md-4 control-label" for="selectmultiple">Organizaciones</label>
   <div class="col-md-4">
-    <select size="6" name="ngvalueselect" class="form-control" ng-model="edit.users" multiple>
-      <option ng-repeat="user in db_usuarios" ng-value="user.$id">{{user.name+" "+user.lastName}}</option>
+    <select  class="form-control" ng-model="edit.organization" >
+      <option ng-repeat="organizacion in db_organizations" ng-value="organizacion.$id">{{organizacion.name}}</option>
     </select>
   </div>
 </div>
 
 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="selectmultiple">Encuestas</label>
+
+<legend>Secciones  </legend>
+
+
+
+<div ng-repeat = "seccion in edit.questionSections">
+
+<legend ng-if = "$index">  </legend>
+
+<div class="form-group" >
+  <label class="col-md-4 control-label" for="textinput">Descripción  Nº {{$index+1}}</label>  
   <div class="col-md-4">
-    
+  <input id="textinput" name="textinput" type="text"  class="form-control input-md" ng-model="seccion.description">
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<legend><h4>Preguntas</h4>  </legend>
+<div ng-repeat="question in seccion.questions" > 
+<!--  -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Preguntas Nº {{$index+1}}</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text"  class="form-control input-md" ng-model="question.description" >
+
+  </div>
+
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Tipo</label>
+  <div class="col-md-4" >
+    <select id="selectbasic" name="selectbasic" ng-model="question.type" class="form-control">
+      <option value="1">Seleccion Multiple Única</option>
+      <option value="2">Respuesta</option>
+      <option value="3">Seleccion Multiple Multiple</option>
+    </select>
+  </div>
+</div>
+
+
+
+
+<any ng-if="question.type != undefined && question.type!=2">
+
+
+<div class="form-group" ng-repeat="o in question.options" >
+  <label class="col-md-4 control-label" for="textinput">Opcion {{$index+1}}</label>  
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text"  ng-model="o.option" class="form-control input-md" >
+  </div>
+
+</div>
+
+
+
+<div class="form-group" >
+  <label class="col-md-4 control-label" for="button1id"></label>
+  <div class="col-md-8">
+    <button id="button1id" name="button1id"  ng-click="add_opcion(question.options)" class="btn btn-success">Agregar Opciones</button>
+    <button id="button2id" name="button2id"  ng-if="question.options.length > 1" ng-click="question.options.pop()"  class="btn btn-danger">Quitar Opciones</button>
+  </div>
+</div>
+
+
+</any>
+
+
+
+</div>
+<hr>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="button1id"></label>
+  <div class="col-md-8">
+    <button id="button1id" name="button1id" ng-click="add_preguntas($index)"   class="btn btn-success">Agregar Preguntas</button>
+    <button id="button2id" name="button2id" ng-if="seccion.questions.length > 1" ng-click="seccion.questions.pop()"  class="btn btn-danger">Quitar Preguntas</button>
+  </div>
+</div>
+
+
+</div>
+
+<legend> &nbsp;</legend>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="button1id"></label>
+  <div class="col-md-8">
+    <button id="button1id" name="button1id" ng-click="add_seccion()"   class="btn btn-success">Agregar Secciones</button>
+    <button id="button2id" name="button2id" ng-if="seccion.questions.length > 1" ng-click="seccion.questions.pop()"   class="btn btn-danger">Quitar Secciones</button>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="button1id"></label>
+  <div class="col-md-8">
+    <button id="button1id" name="button1id" class="btn btn-success" ng-click="test()">Guardar</button>
   </div>
 </div>
 
 
 </fieldset>
 </form>
+
+
+

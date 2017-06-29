@@ -16,7 +16,12 @@ $scope.db_organizaciones = $firebaseArray(ref);
 
 $scope.count = function(obj){
 
+try{
 	return Object.keys(obj).length
 }
+catch(err) {
 
-  });
+return ""
+}
+ 
+ } });

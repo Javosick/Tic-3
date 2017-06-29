@@ -1,33 +1,70 @@
-<h2>Usuarios Izi Survey</h2>
+<form class="form-horizontal"  ng-submit="submit()" >
+<fieldset>
 
-  <div class=text-right>
-     <a class="btn-info btn" ng-href="#!/add_usuarios" >Agregar Organizaciones</a>
+<!-- Form Name -->
+<legend>Crear una nueva Organizaciones</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email">Nombre</label>  
+  <div class="col-md-4">
+  <input id="Email" name="Email" type="text" placeholder=""  ng-model="new.name" class="form-control input-md">
+    
+  </div>
 </div>
 
-  <div class=text-left>
-     <p>Organizaciones </p> 
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email">Categoria</label>  
+  <div class="col-md-4">
+    <select name="repeatSelect" id="repeatSelect"  class="form-control input-md" ng-model="new.category">
+      <option ng-repeat="option in db_categorias" value="{{option.$id}}">{{option.$value}}</option>
+    </select>
+
+
+  </div>
 </div>
-  
 
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>E-mail</th>
-        <th>Rol</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat ="usuario in users"> 
-        <td>{{usuario.name}}</td>
-        <td>{{usuario.lastName}}</td>
-        <td>{{usuario.email}}</td>
-        <td>{{usuario.rol}}</td>
-        <td><a ng-href="#!/edit_usuarios/{{usuario.$id}}" >Editar</a></td>
-      </tr>
-      
-    </tbody>
-  </table>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Nombre">Descripcion</label>  
+  <div class="col-md-4">
+  <textarea id="Nombre" name="Nombre" type="text" ng-model="new.description"  placeholder="" class="form-control input-md"></textarea> 
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectmultiple">Responsable</label>
+  <div class="col-md-4">
+    <select size="6" name="ngvalueselect" class="form-control" ng-model="new.responsables" multiple>
+      <option ng-repeat="user in db_usuarios" ng-value="user.$id">{{user.name+" "+user.lastName}}</option>
+    </select>
+  </div>
+ </div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectmultiple">Usuarios</label>
+  <div class="col-md-4">
+    <select size="6" name="ngvalueselect" class="form-control" ng-model="new.users" multiple>
+      <option ng-repeat="user in db_usuarios" ng-value="user.$id">{{user.name+" "+user.lastName}}</option>
+    </select>
+  </div>
+</div>
+
+
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="button1id">Opciones</label>
+  <div class="col-md-8">
+    <button id="button1id" name="button1id" class="btn btn-success">Guardar</button>
+    <button id="Cancelar" name="Cancelar" class="btn btn-danger">Cancelar</button>
+  </div>
+</div>
+
+
+</fieldset>
+</form>

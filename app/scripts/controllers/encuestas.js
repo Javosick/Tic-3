@@ -16,6 +16,15 @@ $scope.db_encuestas = $firebaseArray(ref);
 
 $scope.count = function(obj){
 
+try{
 	return Object.keys(obj).length
 }
+catch(err) {
+
+return ""
+}
+}
+
+
+
   });
